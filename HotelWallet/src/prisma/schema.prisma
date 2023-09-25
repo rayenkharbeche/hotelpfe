@@ -1,0 +1,160 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model ItemCategory {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  name      String
+  items     Item[]
+  service   Service  @relation(fields: [serviceId], references: [id])
+  serviceId String   @db.ObjectId
+}
+
+model Item {
+  id             String        @id @default(auto()) @map("_id") @db.ObjectId
+  name           String
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+  description    String
+  price          Float
+  photo          String
+  status         Boolean
+  itemCategory   ItemCategory? @relation(fields: [itemCategoryId], references: [id])
+  itemCategoryId String?        @db.ObjectId
+  commands       Command[]     @relation(fields: [commandIds], references: [id])
+  commandIds     String[]      @db.ObjectId
+  service        Service       @relation(fields: [serviceId], references: [id])
+  serviceId      String        @db.ObjectId
+}
+
+model Command {
+  id                 String          @id @default(auto()) @map("_id") @db.ObjectId
+  date               DateTime
+  createdAt          DateTime        @default(now())
+  updatedAt          DateTime        @updatedAt
+  treatementDuration String
+  totalPrice         Float
+  commandStatus      CommandStatus   @default(PENDING)
+  items              Item[]          @relation(fields: [itemIds], references: [id])
+  itemIds            String[]        @db.ObjectId
+  provider           ServiceProvider @relation(fields: [providerId], references: [id])
+  providerId         String          @db.ObjectId
+  client             Client          @relation(fields: [clientId], references: [id])
+  clientId           String          @db.ObjectId
+}
+
+enum CommandStatus {
+  PENDING
+  ACCEPTED
+  REJECTED
+  DELEVIRED
+}
+
+model Service {
+  id              String           @id @default(auto()) @map("_id") @db.ObjectId
+  name            String
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+  phone           String
+  photo           String
+  timeIn          String
+  timeOut         String
+  description     String
+  status          Boolean
+  items           Item[] 
+  itemCategory    ItemCategory[]
+  serviceProvider ServiceProvider?
+  admin           Admin            @relation(fields: [adminId], references: [id])
+  adminId         String           @db.ObjectId 
+}
+
+model ServiceProvider {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  email     String  @unique
+  password  String
+
+  command   Command[]
+  service   Service   @relation(fields: [serviceId], references: [id])
+  serviceId String    @unique @db.ObjectId
+  admin     Admin     @relation(fields: [adminId], references: [id])
+  adminId   String    @db.ObjectId
+}
+
+model Client {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  name      String?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  email     String    @unique
+  phone     String?
+  checkIn   DateTime?
+  checkOut  DateTime?
+  photo     String?
+  credit    Float?
+  room     Int? 
+  command   Command[]
+  admin     Admin?     @relation(fields: [adminId], references: [id])
+  adminId   String    @db.ObjectId
+  tokens    Token[]
+}
+
+model Admin {
+  id              String            @id @default(auto()) @map("_id") @db.ObjectId
+  name            String
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+  email           String     @unique
+  password        String
+  client          Client[]
+  serviceProvider ServiceProvider[]
+  service         Service[]
+}
+
+model Token {
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  type       TokenType
+  emailToken String?   @unique // Only used for short lived email tokens
+  valid      Boolean   @default(true)
+  expiration DateTime
+
+  // Relation fields
+  client   Client? @relation(fields: [clientId], references: [id])
+  clientId String  @db.ObjectId
+}
+
+enum TokenType {
+  EMAIL // used as a short-lived token sent to the user's email
+  API
+}
+
+enum Role {
+  ADMIN
+  SERVICEPROVIDER
+  CLIENT
+}
+
+// item-category -->item : one to many
+// service-->item : one to many
+//item-->command :many to many
+// client -->command : one to many
+//service provider --> command :one to many
+//service provider --> service :one to one
+
+//admin -->clent :one to many
+//admin -->service provider :one to many
+//admin -->service :one to many

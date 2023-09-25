@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true"
+        android:elevation="100dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ProgressBar
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_centerInParent="true"
+            android:elevation="100dp"
+            android:indeterminate="true" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_login_title"
+        style="@style/Title"
+        android:layout_width="411dp"
+        android:layout_height="4dp"
+
+        android:gravity="center"
+        android:textColor="@color/teal_700"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_login_sub_title"
+        style="@style/SubTitle"
+        android:layout_width="413dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="32dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_login_title" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilemail"
+        style="@style/TextInputLayout"
+        android:layout_width="413dp"
+        android:layout_height="79dp"
+        android:layout_marginTop="32dp"
+        android:hint="@string/login_email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_login_sub_title"
+        app:startIconDrawable="@drawable/ic_circle_account">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etemail"
+            style="@style/TextInputEditText"
+            android:layout_width="342dp"
+            android:layout_height="61dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:padding="20dp"
+            android:textColor="@color/black" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <TextView
+        android:id="@+id/tv_verify_email"
+        style="@style/SubTitle"
+        android:layout_width="342dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="16dp"
+    android:text="@string/verify_email_message"
+    android:textAlignment="center"
+    android:textSize="18dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/tilemail" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/bnt_login"
+        style="@style/ButtonGreen"
+        android:layout_width="341dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:textAllCaps="false"
+        android:text="@string/btn_register"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_verify_email" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

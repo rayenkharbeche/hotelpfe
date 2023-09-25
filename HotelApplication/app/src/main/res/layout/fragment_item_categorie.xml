@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".Fragment.ServiceListFragment"
+        android:id="@+id/ilragment">
+
+        <com.denzcoskun.imageslider.ImageSlider
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:id="@+id/imageslider"
+            app:iss_auto_cycle="true"
+            app:iss_delay="0"
+            app:iss_placeholder="@android:color/darker_gray"
+            app:iss_error_image="@android:color/darker_gray"
+            app:iss_corner_radius="5"
+            app:iss_selected_dot="@drawable/default_selected_dot"
+            app:iss_unselected_dot="@drawable/default_unselected_dot"
+            app:iss_period="1000"
+            tools:ignore="MissingConstraints" >
+        </com.denzcoskun.imageslider.ImageSlider>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/imageslider"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <android.widget.SearchView
+                android:id="@+id/search"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="20dp"
+                android:clickable="true"
+                android:hint="Search View"
+                style="@style/SearchViewStyle"
+            app:hintEnabled="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/sort_button"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:backgroundTint="@android:color/transparent"
+                android:drawableLeft="@drawable/ic_baseline_filter"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:textColor="@color/teal_200"
+                android:text="Trie par nom"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/search" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/grid_button"
+                android:layout_width="45dp"
+                android:layout_height="49dp"
+                android:layout_marginEnd="24dp"
+                android:backgroundTint="@android:color/transparent"
+                android:paddingTop="40dp"
+                app:borderWidth="0dp"
+                app:elevation="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/search"
+                app:srcCompat="@drawable/ic_baseline_format_list_bulleted" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerItemC"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="280dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:itemCount="5"
+            tools:listitem="@layout/recycler_item_c" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

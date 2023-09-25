@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.hotelapplication.viewmodel.RegisterActivityViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="310dp"
+            android:layout_gravity="center|center_horizontal"
+            android:layout_marginTop="40dp"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="10dp"
+            app:cardUseCompatPadding="true">
+
+            <LinearLayout
+                android:layout_width="389dp"
+                android:layout_height="238dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="23dp"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/profile_image"
+                    android:layout_width="103dp"
+                    android:layout_height="86dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/circle_background"
+                    app:loadImage="@{viewModel.clientPhoto}" />
+
+                <TextView
+                    android:id="@+id/tv1"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:gravity="center"
+                    android:text="@{viewModel.clientName}"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv2"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:gravity="center"
+                    android:text="@{viewModel.clientEmail}"
+                    android:textColor="#5C5A5A"
+                    android:textSize="13sp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/tv3"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:text="@{viewModel.clientPhone}"
+                    android:textColor="#5C5A5A"
+                    android:textSize="13sp"
+                    android:textStyle="normal" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/but"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
+                        android:backgroundTint="@color/secondary"
+                        android:text="My bills"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        app:elevation="0dp" />
+
+                    <Button
+                        android:id="@+id/PDF"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
+                        android:backgroundTint="@color/secondary"
+                        android:text="PDF"
+                        android:textColor="@color/white"
+                        app:elevation="0dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="sans-serif"
+            android:text="Your Credit is "
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/credit"
+            android:layout_width="158dp"
+            android:layout_height="168dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/border_cercle"
+            android:fontFamily="serif"
+            android:gravity="center"
+            android:text="@{viewModel.clientCredit}"
+            android:textSize="40dp" />
+
+    </LinearLayout>
+</layout>

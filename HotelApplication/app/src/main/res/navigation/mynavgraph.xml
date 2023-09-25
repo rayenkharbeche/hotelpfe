@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mynavgraph"
+    app:startDestination="@id/payementFragment">
+
+    <fragment
+        android:id="@+id/payementFragment"
+        android:name="com.example.hotelapplication.Fragment.PayementFragment"
+        android:label="PayementFragment" >
+        <action
+            android:id="@+id/action_payementFragment_to_editProfile"
+            app:destination="@id/editProfile" />
+        <action
+            android:id="@+id/action_payementFragment_to_changePasswordFragment"
+            app:destination="@id/changePasswordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editProfile"
+        android:name="com.example.hotelapplication.Fragment.EditProfile"
+        android:label="EditProfile" />
+    <fragment
+        android:id="@+id/changePasswordFragment"
+        android:name="com.example.hotelapplication.Fragment.ChangePasswordFragment"
+        android:label="ChangePasswordFragment" />
+
+</navigation>

@@ -1,0 +1,99 @@
+<resources>
+    <string name="app_name">HotelApplication</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="started_title">Hello !!</string>
+    <string name="started_sub_title">Nice to mee you, come join our community
+
+        <br><b>Login</b>If you already have an account.
+        </br>
+    <br><b>Register</b>To get started with the app.
+    </br>
+    </string>
+    <string name="btn_register">Register</string>
+    <string name="btn_login">Login</string>
+    <string name="login_title">Hotel Wallet</string>
+
+
+    <string name="login_sub_title">
+        <font color="#9ABD71"><br>Login</br></font>
+      If you already have an account.
+    </string>
+    <string name="login_email">Your email </string>
+    <string name="register_email">Your email </string>
+    <string name="login_password">Your password</string>
+    <string name="login_forget_pw">Forget password?</string>
+    <string name="login_haven_account">
+        I don\'t have an account
+        <font color="#85BD43"><b>Register</b></font>
+    </string>
+    <string name="register_title">Create an account</string>
+
+    <string name="register_sub_title">
+        <font color="#85BD43"><br>Register</br></font>
+      To get started with the app.
+    </string>
+    <string name="register_name">Your name</string>
+    <string name="registerage">Your age</string>
+    <string name="register_address">Your address</string>
+    <string name="register_birth_date">Your birth date</string>
+    <string name="register_cin">Your CIN</string>
+    <string name="register_confirm_password">Confirm password</string>
+    <string name="register_haven_account">
+        I already have an account
+        <font color="#FF9E96"><b>Login</b></font>
+    </string>
+    <string name="home_title">Hello Hotel Wallet</string>
+    <string name="home_sub_title">Welcome to Hotel Wallet</string>
+    <string name="btn_logout">Logout</string>
+    <string name="btnScan">Scan</string>
+    <string name="scan">Scan</string>
+    <string name="generate_qr_code">go to generate qr code</string>
+    <string name="Services">Liste des services</string>
+    <string name="next">Next</string>
+
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="linearLayout">LinearLayout</string>
+    <string name="gridLayout">GridLayout</string>
+    <string name="our_service"> SERVICES</string>
+
+    <string name="resto">Notre restaurant à votre service</string>
+    <string name="Café">On a tout types de café et dessert</string>
+    <string name="spa">Service spa</string>
+    <string name="title_activity_qr">QrActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="details">Details</string>
+    <string name="liste_des_services">List of services</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Rayen kharbeche</string>
+    <string name="nav_header_subtitle">rayen.kharbeche@esprit.tn</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="total">Total</string>
+
+    <string name="total_price">Total Price: %s</string>
+    <string name="delete_button_description">delete_button_description</string>
+    <string name="name_description">name</string>
+    <string name="price_description">price</string>
+    <string name="login_error_invalid_email">Invalid email address</string>
+    <string name="description_description">description</string>
+    <string name="login_error_message">error login</string>
+    <string name="login_error_title">error title</string>
+    <string name="verify_email_message">Check your mailbox to receive an emailtoken</string>
+</resources>

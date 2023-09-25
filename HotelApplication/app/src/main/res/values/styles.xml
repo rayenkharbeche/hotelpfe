@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="CustomCardCorners" parent="@style/Widget.MaterialComponents.CardView">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance_custom_corners</item>
+    </style>
+
+    <style name="ShapeAppearance_custom_corners" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">4dp</item>
+        <item name="cornerSizeTopRight">4dp</item>
+    </style>
+
+    <style name="CustomSearchViewStyle" parent="Widget.AppCompat.SearchView">
+        <!-- Customize the search view background color -->
+        <item name="android:background">@drawable/border</item>
+
+        <!-- Customize the search icon color -->
+        <item name="android:searchIcon">@drawable/searchview_icon</item>
+        <item name="android:queryHint">Search...</item>
+
+        <!-- Customize the text color of the search query -->
+        <item name="android:textColor">@color/teal_700</item>
+    </style>
+    <style name="SearchViewStyle" parent="Widget.AppCompat.SearchView">
+        <item name="android:background">@drawable/search_view_background</item>
+        <item name="android:queryHint">Enter your search query</item>
+        <item name="android:textColorHint">#BBEDBD</item>
+    </style>
+</resources>
