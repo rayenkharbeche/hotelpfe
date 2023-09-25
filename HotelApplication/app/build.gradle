@@ -1,8 +1,20 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
-apply plugin: "androidx.navigation.safeargs.kotlin"
-apply plugin: 'kotlin-parcelize'
+plugins {
+    id "org.sonarqube" version "3.0"
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id "androidx.navigation.safeargs.kotlin"
+    id 'kotlin-parcelize'
+}
+sonarqube {
+    properties {
+
+        property "sonar.projectKey", "hotelwallet"
+        property "sonar.host.url", "http://192.168.1.22:9000"
+        property "sonar.login", "ab0fedc4361ef654cd4ea1c439982b21b1786110"
+
+    }
+}
 
 android {
     namespace 'com.example.hotelapplication'
