@@ -117,13 +117,13 @@ class ListAdapter(
         }
 
         fun bind(data: ServiceResponse) {
-          //  binding.textName.text = data.name
-            if (isGridMode) {
+            binding.textName.text = data.name
+           /* if (isGridMode) {
 
                 binding.textName.text = data.name
             } else {
                 binding.textName.text = data.name
-            }
+            }*/
             //binding.textphone.text = data.phone
            //binding.textDesc.text = data.description
            // loadImage(binding.displayImage, data.photo)
@@ -137,13 +137,13 @@ class ListAdapter(
             } else {
                 binding.textDesc.text = "${data.description.substring(0, maxLines * 50).trim()}..."
             }*/
-
-            if (isGridMode) {
+            binding.textDesc.text = data.description
+           /* if (isGridMode) {
 
                 binding.textDesc.text = data.description
             } else {
                 binding.textDesc.text = data.description
-            }
+            }*/
         }
 
 
