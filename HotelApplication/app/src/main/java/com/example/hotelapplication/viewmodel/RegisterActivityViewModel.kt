@@ -183,11 +183,6 @@ class RegisterActivityViewModel(
         tokenResponseLiveData.value = clientId
         return tokenResponseLiveData
     }
-    fun getClientname(): MutableLiveData<String?> {
-        val tokenResponseLiveData = MutableLiveData<String?>()
-        tokenResponseLiveData.value = clientnamee
-        return tokenResponseLiveData
-    }
     fun getClientemail(): MutableLiveData<String?> {
         val tokenResponseLiveData = MutableLiveData<String?>()
         tokenResponseLiveData.value = clientemaill

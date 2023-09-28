@@ -30,9 +30,7 @@ class EditProfile : Fragment(), View.OnClickListener, View.OnFocusChangeListener
     private lateinit var binding: EditProfileBinding
     private lateinit var viewModel: ClientViewModel
     private lateinit var viewModelRegister: RegisterActivityViewModel
-    private lateinit var name: String
-    private lateinit var email: String
-    private lateinit var phone: String
+
 
 
     override fun onCreateView(

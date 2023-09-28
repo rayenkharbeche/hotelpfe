@@ -147,22 +147,17 @@ View.OnKeyListener {
 
     override fun onKey(view: View?, keyCode: Int, keyEvent: KeyEvent?): Boolean {
         if (KeyEvent.KEYCODE_ENTER == keyCode && keyEvent!!.action == KeyEvent.ACTION_UP) {
-           // onSubmit()
+
         }
 
         return false
     }
 
 
-    private fun validate(): Boolean {
-        var isValid = true
-        if (!validatePassword()) isValid = false
-        if (!validateConfirmPassword()) isValid = false
-        return isValid
-    }
 
 
 
- 
+
+
         }
 

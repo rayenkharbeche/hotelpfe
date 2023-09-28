@@ -110,15 +110,9 @@ class ClientViewModel(private val repository: ClientRepository , val application
     val _clientNameLiveData: MutableLiveData<Client?> = MutableLiveData()
     val clientNameLiveData: MutableLiveData<Client?> = _clientNameLiveData
 
-    fun getClientId(): LiveData<Client?> {
-        return _client
-    }
 
     fun setClientId(Client: Client?) {
         clientIdLiveData.value = Client
-    }
-    fun setClientName(Client: Client?) {
-        clientNameLiveData.value = Client
     }
 
 

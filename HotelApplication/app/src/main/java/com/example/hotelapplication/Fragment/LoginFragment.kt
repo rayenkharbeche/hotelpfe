@@ -26,7 +26,6 @@ class LoginFragment : Fragment(), View.OnClickListener, View.OnFocusChangeListen
     private lateinit var viewModel: LoginViewModel
     private lateinit var clientViewModel: ClientViewModel
     private lateinit var commandeViewModel: CommandeViewModel
-   // private val sharedViewModel: SharedViewModel by activityViewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = LoginemailBinding.inflate(layoutInflater)

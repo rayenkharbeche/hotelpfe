@@ -39,10 +39,9 @@ class MyCardAdapter(private var serviceList: List<ItemResponse>, private val vie
     class ViewHolder( val binding: MylistBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: ItemResponse, viewModel: SharedViewModel) {
             var isGridMode = false
-         //   ImageLo.loadImage(binding.displayImage, item.photo)
-            binding.text1name.text=item.name
-            binding.text2price.text=item.getPriceAsString()
-           // binding.text3des.text = item.description
+
+            binding.text1name.text = item.name
+            binding.text2price.text = item.getPriceAsString()
             Glide.with(binding.displayImage)
                 .load(item.photo)
                 .into(binding.displayImage)
@@ -53,48 +52,15 @@ class MyCardAdapter(private var serviceList: List<ItemResponse>, private val vie
             val maxLengthPerLine = 15 // Adjust this value as needed
             val maxTotalLength = maxLines * maxLengthPerLine
 
-            if (isGridMode ) {
-                // No need to truncate, display the full description
-               // binding.text3des.text = item.description
-                val truncatedDescription = "${item.description.substring(0, maxTotalLength).trim()}..."
+            if (isGridMode) {
+                val truncatedDescription =
+                    "${item.description.substring(0, maxTotalLength).trim()}..."
                 binding.text3des.text = truncatedDescription
             } else {
                 // Truncate the description with three dots if it exceeds two lines
                 binding.text3des.text = item.description
             }
         }
-
-        private fun truncateText(text: String, maxLength: Int, textPaint: TextPaint): String {
-            val words = text.split(" ")
-            var currentLineText = ""
-            var lastLineText = ""
-            var lines = 0
-
-            for (word in words) {
-                if (currentLineText.isNotEmpty()) {
-                    currentLineText += " "
-                }
-                currentLineText += word
-
-                if (textPaint.measureText(currentLineText) > maxLength) {
-                    lastLineText = currentLineText
-                    currentLineText = ""
-                    lines++
-                }
-            }
-
-            val truncatedText = StringBuilder()
-
-            for (i in 0 until lines - 1) {
-                truncatedText.append("\n")
-            }
-
-            truncatedText.append(lastLineText)
-
-            return truncatedText.toString()
-
-        }
-
 
     }
 
