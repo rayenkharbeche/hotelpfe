@@ -53,9 +53,9 @@ class ItemCategorieAdapter (private val onItemCategorieClickListener: OnItemCate
              dataList[position]
          }
 
-        // val currentItem = dataList[position]
+
          holder.bindc(data)
-         //holder.rvNameC.text = currentItem.name
+
 
          holder.binding.buttonlisteItem.setOnClickListener {
              if (dataList.isEmpty()) {

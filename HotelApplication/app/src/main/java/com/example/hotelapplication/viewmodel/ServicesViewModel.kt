@@ -10,11 +10,9 @@ import kotlinx.coroutines.launch
 import retrofit2.Response
 
 class ServicesViewModel(private val repository: ServicesRepository) : ViewModel() {
-    //val serviceList = MutableLiveData<List<ExtarServices>>()
     val serviceResponseListLiveData = MutableLiveData<List<ServiceResponse>>()
     val errorMessage = MutableLiveData<String?>()
-    //private var isLoading: MutableLiveData<Boolean> = MutableLiveData<Boolean>().apply { value = false }
-    //fun getIsLoading() : LiveData<Boolean> = isLoading
+
     fun getAllServices() {
         viewModelScope.launch {
             try {
@@ -39,13 +37,4 @@ class ServicesViewModel(private val repository: ServicesRepository) : ViewModel(
             }
         }
     }
-
-
-
-
-
-
-    //private fun filterServicesByType(services: List<ExtarServices>?, type: String): List<ExtarServices> {
-   //     return services?.filter { it.== type } ?: emptyList()
-   // }
 }

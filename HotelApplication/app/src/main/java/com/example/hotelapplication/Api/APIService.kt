@@ -80,7 +80,7 @@ object APIService {
 
         return retrofit!!.create(APIConsumer::class.java)
     }
-    val authService = retrofit?.create(APIService::class.java)
+
 }
 
 

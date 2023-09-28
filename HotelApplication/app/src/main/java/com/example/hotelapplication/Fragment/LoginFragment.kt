@@ -38,13 +38,13 @@ class LoginFragment : Fragment(), View.OnClickListener, View.OnFocusChangeListen
             LoginViewModelFactory(ClientRepository(APIService.getService()), requireActivity().application,requireContext())
         ).get(LoginViewModel::class.java)
 
-        clientViewModel = ViewModelProvider(
+        ViewModelProvider(
             this,
             ClientViewModelFactory(
                 ClientRepository(APIService.getUpdatedService()),
                 requireActivity().application
             )
-        ).get(ClientViewModel::class.java)
+        ).get(ClientViewModel::class.java).also { clientViewModel = it }
 
         commandeViewModel = ViewModelProvider(
             this,

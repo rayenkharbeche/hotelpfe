@@ -42,7 +42,7 @@ class ServiceListFragment : Fragment(), OnServiceClickListener {
     private val GRID_VIEW = "GRID_VIEW"
     private var currentView = LIST_VIEW
     private lateinit var binding: RecyclerViewMenuBinding
-   // private lateinit var binding1: RecylcerviewBinding
+
     private lateinit var viewModel: ServicesViewModel
     private val retrofitService = RetrofitService.getInstance()
     private val retrofitItemCategorie = RetrofitItemCategorie.getInstance()

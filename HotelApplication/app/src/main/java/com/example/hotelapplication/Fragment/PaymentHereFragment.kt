@@ -15,7 +15,7 @@ import com.example.hotelapplication.viewmodel.SharedViewModel
 import java.io.*
 
 class PaymentHereFragment: Fragment() {
-    //private val sharedViewModel: SharedViewModel by activityViewModels()
+
     private lateinit var binding: ThanksBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

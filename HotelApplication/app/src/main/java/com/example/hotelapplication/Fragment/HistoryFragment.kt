@@ -35,7 +35,6 @@ class HistoryFragment : Fragment () {
     ): View {
 
         binding = HistoryRecyclerviewBinding.inflate(layoutInflater)
-       // binding.lifecycleOwner = viewLifecycleOwner
 
         ViewModel = ViewModelProvider(
             this,
@@ -69,8 +68,6 @@ class HistoryFragment : Fragment () {
             )
         ).get(ClientViewModel::class.java)
 
-       // val clientId = "6485962aa005aa6ab8560221" // Replace with the real client ID
-
         // Fetch the command history for the given client ID
         val clientId = viewModelRegister.getClientId().value
         if (clientId != null) {
@@ -89,8 +86,6 @@ class HistoryFragment : Fragment () {
 
         binding.historyRecyclerView.apply {
            layoutManager = LinearLayoutManager(requireContext())
-          //  layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-           // layoutManager = GridLayoutManager(requireContext(), 4)
             adapter = historyAdapter
         }
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
@@ -103,14 +98,6 @@ class HistoryFragment : Fragment () {
         })
 }
 
-    /*private fun getHistoryData() {
-        ViewModel.client.observe(viewLifecycleOwner) { client ->
-            if (client != null) {
-                val historyData = client.history
-                historyAdapter.setData(historyData)
-            }
-        }
-    }*/
     companion object {
         fun newInstance(history: MutableList<Command>): StatByTypeFragment {
             val args = Bundle()

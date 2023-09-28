@@ -31,7 +31,7 @@ class RegisterActivityViewModel(
     fun getSignInResponse(): LiveData<ApiResponse<String>?> = signInResponse
 
 
-    //var _signInResponseLiveData: MutableLiveData<ApiResponse<String>?> = MutableLiveData()
+
     val signInResponseLiveData = MutableLiveData<ApiResponse<String>?>()
 
 
@@ -134,9 +134,7 @@ class RegisterActivityViewModel(
                         clientPhotoLiveData.value =  clientphotoo
                         Log.d(TAG, "Token validation successful. clientNameLiveData.value: ${clientNameLiveData.value}")
                         Log.d(TAG, "Token validation successful. clientEmailLiveData.valuel: ${clientEmailLiveData.value}")
-                       // Log.d(TAG, "Token validation successful. Name: ${tokenResponse.client.name}")
-                        //Log.d(TAG, "Token validation successful. Phone: ${tokenResponse.client.phone}")
-                      //  Log.d(TAG, "Token validation successful. Credit: ${tokenResponse.client.credit}")
+
                         clientId =  tokenResponse.client.id
                         clientIdLiveData.value = tokenResponse.client.id
                         setClientId(clientId)
@@ -154,7 +152,7 @@ class RegisterActivityViewModel(
                         setClientName(clientphotoo)
 
                         Log.d(TAG, "Token validation successful.clientIdLiveData: ${clientIdLiveData.value}")
-                    //    Log.d(TAG, "Token validation successful.clientNameLiveData: ${clientNameLiveData.value}")
+
                     } else {
                         handleErrorMessage("Token response body is null")
                     }

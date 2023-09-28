@@ -44,7 +44,6 @@ class ItemFragment : Fragment(), OnItemClickListener {
     private lateinit var viewModel: ItemViewModel
     private val retrofitItem = RetrofitItem.getInstance()
     private val adapter = ItemAdapter(this)
-   // private var dataList = mutableListOf<ItemResponse>()
     private lateinit var serviceId: String
     private lateinit var progressBar: ProgressBar
     private val favoriteItems = mutableListOf<ItemResponse>()
@@ -63,26 +62,6 @@ class ItemFragment : Fragment(), OnItemClickListener {
         view.layoutParams = params
         view.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.red))
         snackbar.show()
-     /*   val serviceDescriptionFragment = ServiceDescription.newInstance(item)
-
-        // Use the FragmentManager to replace the current fragment with the ServiceDescription fragment
-        parentFragmentManager.beginTransaction()
-            .replace(R.id.flFragment, serviceDescriptionFragment)
-            .addToBackStack(null) // This allows you to navigate back to the previous fragment
-            .commit()*/
-
-     /*   val newIsFavorite = !item.isFavorite
-        item.isFavorite = newIsFavorite
-        if (newIsFavorite) {
-            sharedViewModel.addItem(item)
-            // Show a message that the item has been added to favorites.
-            Toast.makeText(requireContext(), "Added to favorites: ${item.name}", Toast.LENGTH_SHORT).show()
-        } else {
-            sharedViewModel.removeItem(item)
-            // Show a message that the item has been removed from favorites.
-            Toast.makeText(requireContext(), "Removed from favorites: ${item.name}", Toast.LENGTH_SHORT).show()
-        }
-        adapter.notifyItemChanged(adapter.getDataList().indexOf(item))*/
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

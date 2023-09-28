@@ -50,8 +50,7 @@ class EmailVerificationFragment : Fragment(), View.OnClickListener, View.OnFocus
         btnVerify.setOnClickListener(this)
 
         btnVerify.setOnClickListener {
-            val email = binding.etemail.text.toString().trim()
-            val password = etPassword.text.toString()
+
             if (validateEmail() && validatePassword()) {
             // Effectuer la vérification côté client avec le token envoyé par email
                 val url = "http://example.com/client/auth/token?jwt=YOUR_JWT_TOKEN"
@@ -65,9 +64,6 @@ class EmailVerificationFragment : Fragment(), View.OnClickListener, View.OnFocus
         return view
     }
     private fun setupObservers() {
-      //  viewModel.getIsLoading().observe(this) {
-        //    binding.progressBar.isVisible = it
-    //    }
 
         viewModel.getErrorMessage().observe(this) {
             //email,pwd

@@ -49,7 +49,6 @@ class ItemCategorieFragment : Fragment() , OnItemCategorieClickListener {
     val itemRepository = ItemRepository(retrofitItem)
     val itemViewModel = ItemViewModel(itemRepository)
     private val adapter = ItemCategorieAdapter(this,itemViewModel)
-   // private var dataList = mutableListOf<ItemCategory>()
     private lateinit var serviceId: String
 
     override fun onItemCategorieClicked(itemc: ItemCategoryResponse) {

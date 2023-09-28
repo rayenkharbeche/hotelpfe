@@ -142,14 +142,7 @@ class ProfilApresEditFragment : Fragment() {
             fragment.arguments = args
             return fragment
         }
-        fun newInstancee(client: Client):StatByTypeFragment {
-            val args = Bundle()
-            args.putString("client", client.toString())
 
-            val fragment = StatByTypeFragment()
-            fragment.arguments = args
-            return fragment
-        }
     }
     private fun generatePdf() {
         try {

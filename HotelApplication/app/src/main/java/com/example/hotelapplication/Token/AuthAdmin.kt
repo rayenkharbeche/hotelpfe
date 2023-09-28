@@ -24,10 +24,7 @@ object AuthAdmin {
     fun getadmintId(): String? {
         return admin?.id
     }
-   /* fun getadminPhoto(): String? {
-        return admin?.photo
 
-    }*/
     fun getAdminName(): String? {
         return admin?.name
 

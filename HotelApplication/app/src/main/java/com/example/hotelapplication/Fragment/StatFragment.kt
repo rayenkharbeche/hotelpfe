@@ -31,7 +31,6 @@ class StatFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = StatBinding.inflate(inflater, container, false)
-        //val barChart: BarChart = binding.barChart
         return binding.root
     }
 

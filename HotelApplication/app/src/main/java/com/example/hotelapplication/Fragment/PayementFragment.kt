@@ -33,7 +33,6 @@ class PayementFragment : Fragment() {
     private lateinit var clientViewModel: ClientViewModel
     private lateinit var pdfFilePath: String
     private lateinit var binding: PayementBinding
-    //private val STORAGE_PERMISSION_CODE = 1
 
     private lateinit var viewModelRegister: RegisterActivityViewModel
     override fun onCreateView(
@@ -129,7 +128,6 @@ class PayementFragment : Fragment() {
                 requireContext().getExternalFilesDir(null)?.absolutePath + File.separator + "facture.pdf"
             val writer = PdfWriter.getInstance(document, FileOutputStream(pdfFilePath))
             val num = arguments?.getString("num") ?: ""
-            val type = arguments?.getString("type") ?: ""
             val totalPrice = sharedViewModel.getTotalPrice().toString()
             val date = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
             val serviceList = sharedViewModel.myCommandeServiceList.value ?: emptyList()

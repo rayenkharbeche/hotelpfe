@@ -64,7 +64,7 @@ class StatByTypeFragment : Fragment() {
         val pieChart: PieChart = binding.barChart
 
         // Remplacez "6485962aa005aa6ab8560221" par le véritable ID du client
-       // val clientId = "6485962aa005aa6ab8560221"
+
         val clientId = viewModelRegister.getClientId().value
         Log.d("stat ", "clientIdLiveData: ${viewModelRegister.clientIdLiveData.value}")
         // Récupérer l'historique des commandes pour le client donné

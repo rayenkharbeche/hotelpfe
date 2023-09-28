@@ -49,7 +49,7 @@ class ItemAdapter (private val onItemClickListener: OnItemClickListener) :
             dataList[position]
         }
 
-        val currentItem = dataList[position]
+
         holder.bind(data)
 
 
@@ -117,7 +117,7 @@ class ItemAdapter (private val onItemClickListener: OnItemClickListener) :
 
         }
 
-        private fun truncateText(text: String, maxLength: Int, textPaint: TextPaint): String {
+        /*private fun truncateText(text: String, maxLength: Int, textPaint: TextPaint): String {
             val words = text.split(" ")
             var currentLineText = ""
             var lastLineText = ""
@@ -145,7 +145,7 @@ class ItemAdapter (private val onItemClickListener: OnItemClickListener) :
             truncatedText.append(lastLineText)
 
             return truncatedText.toString()
-        }
+        }*/
     }
     override fun getFilter(): Filter {
         return object : Filter() {

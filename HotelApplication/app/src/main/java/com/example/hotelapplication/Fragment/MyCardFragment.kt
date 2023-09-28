@@ -68,7 +68,6 @@ class MyCardFragment : Fragment() {
                 snackbar.show()
             } else {
                 sharedViewModel.hasClickedButton = true
-                // serviceId = arguments?.getString("serviceId") ?: ""
                 val name = arguments?.getString("name") ?: ""
                 val id =arguments?.getString("id") ?: ""
                 val totalPrice = arguments?.getFloat("totalPrice") ?: 0f
@@ -97,8 +96,6 @@ class MyCardFragment : Fragment() {
     companion object {
         fun newInstance(name: String?): MyCardFragment {
             val args = Bundle()
-          //  args.putString("id", id)
-         //   args.putString("serviceId", serviceId)
             args.putString("name", name)
             val fragment = MyCardFragment()
             fragment.arguments = args

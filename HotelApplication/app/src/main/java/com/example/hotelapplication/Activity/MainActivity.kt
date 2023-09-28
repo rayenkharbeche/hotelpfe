@@ -71,7 +71,6 @@ class MainActivity : AppCompatActivity() {
         val secondFragment = MyCardFragment.newInstance(name)
         val thirdFragment = LoginFragment()
         val profile = EditProfile()
-        val profilee = ProfileFragment()
         val history = HistoryFragment()
         val stat = StatByTypeFragment()
 
@@ -88,7 +87,6 @@ class MainActivity : AppCompatActivity() {
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val topLevelDestinationIds = setOf(
             R.id.nav_home,
-          //  R.id.nav_profile,
             R.id.nav_settings,
             R.id.nav_history,
             R.id.nav_claim,
@@ -102,7 +100,6 @@ class MainActivity : AppCompatActivity() {
         binding.navView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.nav_home -> setCurrentFragment(firstFragment)
-              //  R.id.nav_profile -> setCurrentFragment(profilee)
                 R.id.nav_settings -> setCurrentFragment(profile)
                 R.id.nav_history -> setCurrentFragment(history)
                 R.id.nav_claim -> setCurrentFragment(stat)
@@ -192,11 +189,6 @@ class MainActivity : AppCompatActivity() {
          val clientPhoto = viewModelRegister.getClientPhotoo().value
          Log.d("MainActivity", " clientPhoto:$clientPhoto")
          ImageLo.loadImage(imageView, clientPhoto)
-        /*
-         Glide.with(this)
-
-             .load(clientPhoto)
-             .into(imageView) */
 
              // Afficher les vues du navheader
              imageView.visibility = View.VISIBLE

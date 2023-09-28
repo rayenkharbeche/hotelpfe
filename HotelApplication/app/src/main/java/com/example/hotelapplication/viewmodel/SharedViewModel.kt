@@ -18,8 +18,7 @@ class SharedViewModel : ViewModel() {
     private val _myServiceList = MutableLiveData<MutableList<ServiceResponse>>(mutableListOf())
     val myServiceList: LiveData<MutableList<ServiceResponse>> get() = _myServiceList
 
-    //private val _myServiceListE = MutableLiveData<MutableList<ExtarServices>>(mutableListOf())
-  //  val myServiceListE: LiveData<MutableList<ExtarServices>> get() = _myServiceListE
+
 
     private val _myItemList: MutableLiveData<MutableList<Item>> = MutableLiveData()
     val myItemList: LiveData<MutableList<Item>> get() = _myItemList
@@ -27,9 +26,8 @@ class SharedViewModel : ViewModel() {
     private val _myCommandeServiceList = MutableLiveData<MutableList<Item>>(mutableListOf())
     val myCommandeServiceList: LiveData<MutableList<Item>> get() = _myCommandeServiceList
 
-   // var pdfFilePath: String? = null
     var hasClickedButton = false
-    //var isLoggedIn = false
+
 
     private val _totalPrice = MutableLiveData<Double>(0.0)
     val totalPrice: LiveData<Double> get() = _totalPrice

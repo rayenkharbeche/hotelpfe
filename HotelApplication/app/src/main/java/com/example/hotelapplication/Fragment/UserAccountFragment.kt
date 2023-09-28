@@ -52,8 +52,6 @@ class UserAccountFragment :  Fragment()  {
             Log.d("useraccount ", "Client ID: $clientId")
         }
         val toolbar = view?.findViewById<Toolbar>(R.id.toolbar)
-        //(requireActivity() as AppCompatActivity).setSupportActionBar(toolbar)
-       // toolbar?.setNavigationIcon(R.drawable.ic_baseline_menu)
         val drawerLayout = view?.findViewById<DrawerLayout>(R.id.drawer_layout)
         val navigationView = binding.navView
 
@@ -72,9 +70,7 @@ class UserAccountFragment :  Fragment()  {
         // Set the name and email in the navigation header
         val headerView = binding.navView.getHeaderView(0) // Get the headerView of the NavigationView
         val nameTextView = headerView.findViewById<TextView>(R.id.name)
-        val emailTextView = headerView.findViewById<TextView>(R.id.email)
         nameTextView.text = clientName
-        //  emailTextView.text = email
 
         val mainfragment = ProfileFragment()
         navigationView.setNavigationItemSelectedListener { menuItem ->
@@ -88,15 +84,7 @@ class UserAccountFragment :  Fragment()  {
                     true
                 }
 
-              /*R.id.nav_profile -> {
-                    val fragment = EditProfile()
-                    requireActivity().supportFragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container, fragment)
-                        .addToBackStack(null)
-                        .commit()
-                    navigationView.setCheckedItem(R.id.nav_profile );
-                    true
-                }*/
+
                 R.id.nav_settings -> {
                     val fragment = ChangePasswordFragment()
                     requireActivity().supportFragmentManager.beginTransaction()
@@ -117,17 +105,6 @@ class UserAccountFragment :  Fragment()  {
                     navigationView.setCheckedItem(R.id.nav_settings );
                     true
                 }
-
-
-                /*  R.id.nav_claim -> {
-                      val fragment = ClaimFragment()
-                      requireActivity().supportFragmentManager.beginTransaction()
-                          .replace(R.id.fragment_container, fragment)
-                          .addToBackStack(null)
-                          .commit()
-                      navigationView.setCheckedItem(R.id.nav_claim );
-                      true
-                  }*/
 
                 R.id.nav_logout -> {
                     AuthClient.getInstance().logout()

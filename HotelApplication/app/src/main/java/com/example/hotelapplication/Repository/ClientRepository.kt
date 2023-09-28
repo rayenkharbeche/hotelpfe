@@ -16,42 +16,7 @@ import retrofit2.Response
 
 class ClientRepository(val consumer : APIConsumer) {
 
-    /*fun registerUser (body: RegisterBody) = flow {
-        emit(RequestStatus.Waiting)
-        try {
-            val response = consumer.registerUser(body)
 
-            if (response.isSuccessful) {
-                emit ((RequestStatus.Success(response.body()!!)))
-
-            } else {
-
-                emit(RequestStatus.Error(SimplifiedMessage.get(response.errorBody()!!.byteStream().reader().readText())))
-            }
-        } catch (e: Exception) {
-            //emit(RequestStatus.Error(hashMapOf("error" to ( "This mail is already in use"))))
-            emit(RequestStatus.Error(hashMapOf("error" to (e.message ?: "Unknown error"))))
-
-        }
-    }
-
-    fun LoginUser (body: LoginBody) = flow {
-        emit(RequestStatus.Waiting)
-        try {
-            val response = consumer.loginUser(body)
-            if (response.isSuccessful) {
-                emit ((RequestStatus.Success(response.body()!!)))
-
-
-            } else {
-                emit(RequestStatus.Error(SimplifiedMessage.get(response.errorBody()!!.byteStream().reader().readText())))
-            }
-        } catch (e: Exception) {
-            emit(RequestStatus.Error(hashMapOf("error" to (e.message ?: "Unknown error"))))
-
-        }
-    }
-*/
 
     suspend fun updateClient(id: String, updateclientbody: UpdateClientBody): Flow<RequestStatus<Client>> = flow {
         emit(RequestStatus.Waiting)
@@ -84,39 +49,12 @@ class ClientRepository(val consumer : APIConsumer) {
     }
 
 
-    /*fun loginAdmin(body : LoginBody)  = flow {
-        emit(RequestStatus.Waiting)
-        val response = consumer.loginAdmin(body)
-        if(response.isSuccessful){
-            emit((RequestStatus.Success(response.body()!!)))
-        }else{
-            emit(
-                RequestStatus.Error(
-                    SimplifiedMessage.get(
-                        response.errorBody()!!.byteStream().reader().readText()
-                    )
-                )
-            )
-        }
-    }
 
-*/
+
+
     fun validateAPIToken(authToken: String): Call<TokenResponse> {
         return consumer.validateAPIToken(authToken)
     }
-
-
-    /*suspend fun getClientById(id: String): Client? {
-        try {
-            val response = consumer.getClientById(id)
-            if (response.isSuccessful) {
-                return response.body()
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-        return null
-    }*/
 
     suspend fun getCommandHistoryByQuery(clientId: String): Response<List<Command>> {
         return consumer.getCommandHistoryByQuery(clientId)

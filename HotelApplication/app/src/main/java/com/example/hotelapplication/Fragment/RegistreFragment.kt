@@ -32,7 +32,7 @@ import com.example.hotelapplication.viewmodel.RegisterActivityViewModelFactory
 class RegistreFragment : Fragment(), View.OnClickListener, View.OnFocusChangeListener, View.OnKeyListener {
     private lateinit var binding: LoginBinding
     private lateinit var viewModel: RegisterActivityViewModel
-    private lateinit var bindingc: ContentprofileBinding
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

@@ -25,8 +25,8 @@ class ListAdapter(
 ) : RecyclerView.Adapter<ListAdapter.ListViewHolder>(), Filterable {
     private var dataList = mutableListOf<ServiceResponse>()
     private var filteredDataList: MutableList<ServiceResponse>? = null
-    //private var otherItemCategory: ItemCategory = ItemCategory("", null, null, "", "", null)
-    private var isGridMode = false
+
+
 
 
     @SuppressLint("NotifyDataSetChanged")
@@ -118,32 +118,13 @@ class ListAdapter(
 
         fun bind(data: ServiceResponse) {
             binding.textName.text = data.name
-           /* if (isGridMode) {
-
-                binding.textName.text = data.name
-            } else {
-                binding.textName.text = data.name
-            }*/
-            //binding.textphone.text = data.phone
-           //binding.textDesc.text = data.description
-           // loadImage(binding.displayImage, data.photo)
             Glide.with(binding.displayImage)
                 .load(data.photo)
                 .into(binding.displayImage)
             binding.executePendingBindings()
-         /*   val maxLines = 1
-            if (isGridMode) {
-                binding.textDesc.text = "${data.description.substring(0, maxLines *5).trim()}..."
-            } else {
-                binding.textDesc.text = "${data.description.substring(0, maxLines * 50).trim()}..."
-            }*/
-            binding.textDesc.text = data.description
-           /* if (isGridMode) {
 
-                binding.textDesc.text = data.description
-            } else {
-                binding.textDesc.text = data.description
-            }*/
+            binding.textDesc.text = data.description
+
         }
 
 
