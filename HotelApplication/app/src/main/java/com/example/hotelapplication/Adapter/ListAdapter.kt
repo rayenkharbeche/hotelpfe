@@ -128,36 +128,7 @@ class ListAdapter(
         }
 
 
-            private fun truncateText(text: String, maxLength: Int, textPaint: TextPaint): String {
-            val words = text.split(" ")
-            var currentLineText = ""
-            var lastLineText = ""
-            var lines = 0
 
-            for (word in words) {
-                if (currentLineText.isNotEmpty()) {
-                    currentLineText += " "
-                }
-                currentLineText += word
-
-                if (textPaint.measureText(currentLineText) > maxLength) {
-                    lastLineText = currentLineText
-                    currentLineText = ""
-                    lines++
-                }
-            }
-
-            val truncatedText = StringBuilder()
-
-            for (i in 0 until lines - 1) {
-                truncatedText.append("\n")
-            }
-
-            truncatedText.append(lastLineText)
-
-            return truncatedText.toString()
-
-        }
     }
 
     override fun getFilter(): Filter {

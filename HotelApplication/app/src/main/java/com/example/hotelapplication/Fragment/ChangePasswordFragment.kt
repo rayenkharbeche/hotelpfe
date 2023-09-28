@@ -32,13 +32,6 @@ View.OnKeyListener {
         binding.edtSignUpConfirmPassword.onFocusChangeListener = this
         binding.edtSignUpoldPassword.onFocusChangeListener= this
         binding.button1.setOnClickListener(this)
-        ViewModel = ViewModelProvider(
-            this,
-            ClientViewModelFactory(
-                ClientRepository(APIService.getUpdatedService()),
-                requireActivity().application
-            )
-        ).get(ClientViewModel::class.java)
 
 
         return binding.root  }
@@ -170,42 +163,6 @@ View.OnKeyListener {
 
 
 
- /*   private fun onSubmit() {
-        if (validate()) {
-            ViewModel.client.value?.let { client ->
-                if (binding.edtSignUpoldPassword.text.toString() == client.password) {
-                    if (binding.edtSignUpPassword.text.toString() == binding.edtSignUpConfirmPassword.text.toString()) {
-                        try {
-                            client.password = binding.edtSignUpPassword.text.toString()
-                            client.id?.let { ViewModel.updateClient(it, client) }
-                            val snackbar = Snackbar.make(binding.root, "Your information has been updated!", Snackbar.LENGTH_SHORT)
-                            val view = snackbar.view
-                            val params = view.layoutParams as FrameLayout.LayoutParams
-                            params.gravity = Gravity.CENTER
-                            view.layoutParams = params
-                            view.setBackgroundColor(ContextCompat.getColor(requireContext(), androidx.appcompat.R.color.material_deep_teal_200))
-                            snackbar.show()
-                        } catch (e: Exception) {
-                            Log.e("Exception", "Error updating client", e)
-                        }
-                    } else {
-                        val snackbar = Snackbar.make(binding.root, "Passwords do not match", Snackbar.LENGTH_SHORT)
-                        val view = snackbar.view
-                        val params = view.layoutParams as FrameLayout.LayoutParams
-                        params.gravity = Gravity.CENTER
-                        view.layoutParams = params
-                        view.setBackgroundColor(ContextCompat.getColor(requireContext(), androidx.appcompat.R.color.error_color_material_dark))
-                        snackbar.show()
-                    }
-                } else {
-                    val snackbar = Snackbar.make(binding.root, "Old password is incorrect", Snackbar.LENGTH_SHORT)
-                    val view = snackbar.view
-                    val params = view.layoutParams as FrameLayout.LayoutParams
-                    params.gravity = Gravity.CENTER
-                    view.layoutParams = params
-                    view.setBackgroundColor(ContextCompat.getColor(requireContext(), androidx.appcompat.R.color.error_color_material_dark))
-                    snackbar.show()
-                }
-            }*/
+ 
         }
 
