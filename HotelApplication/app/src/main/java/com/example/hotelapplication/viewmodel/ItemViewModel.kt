@@ -24,16 +24,16 @@ class ItemViewModel(private val repository: ItemRepository) : ViewModel() {
                 val response: Response<List<Item>> = repository.getItem(itemCategoryId)
                 if (response.isSuccessful) {
 
-                    val extarItemcList: List<Item>? = response.body()
-                    val ItemResponseList: List<ItemResponse> = extarItemcList?.map { Itemc ->
-                        Log.d(ContentValues.TAG, "Price before conversion: ${Itemc.price}")
-                        val convertedPrice = Itemc.price.toString().toDouble()
+                    val extraItemList: List<Item>? = response.body()
+                    val itemList: List<ItemResponse> = extraItemList?.map { ItemCategory ->
+                        Log.d(ContentValues.TAG, "Price before conversion: ${ItemCategory.price}")
+                        val convertedPrice = ItemCategory.price.toString().toDouble()
                         Log.d(ContentValues.TAG, "Price after conversion: $convertedPrice")
-                            ItemResponse(Itemc.id ,Itemc.name ,Itemc.description,Itemc.photo ,convertedPrice)
+                            ItemResponse(ItemCategory.id ,ItemCategory.name ,ItemCategory.description,ItemCategory.photo ,convertedPrice)
                         } ?: emptyList()
 
                     // Poster la liste
-                    ItemResponseListLiveData.postValue(ItemResponseList)
+                    ItemResponseListLiveData.postValue(itemList)
                     Log.d(ContentValues.TAG, "Item  list loaded successfully.")
                 } else {
                     val errorString = response.errorBody()?.string()

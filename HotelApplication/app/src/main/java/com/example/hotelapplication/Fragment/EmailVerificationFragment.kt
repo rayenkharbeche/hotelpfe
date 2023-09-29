@@ -174,7 +174,7 @@ class EmailVerificationFragment : Fragment(), View.OnClickListener, View.OnFocus
         }
         return true
     }
- 
+
 
 
 }
