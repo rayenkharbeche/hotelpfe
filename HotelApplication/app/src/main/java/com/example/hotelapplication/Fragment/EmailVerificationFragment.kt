@@ -55,7 +55,7 @@ class EmailVerificationFragment : Fragment(), View.OnClickListener, View.OnFocus
             // Effectuer la vérification côté client avec le token envoyé par email
                 val url = "http://example.com/client/auth/token?jwt=YOUR_JWT_TOKEN"
                 val uri = Uri.parse(url)
-                val jwtToken = uri.getQueryParameter("jwt")
+
 
                // viewModel.loginWithEmailAndPassword(email, password)
             }
@@ -63,50 +63,7 @@ class EmailVerificationFragment : Fragment(), View.OnClickListener, View.OnFocus
 
         return view
     }
-    private fun setupObservers() {
 
-        viewModel.getErrorMessage().observe(this) {
-            //email,pwd
-            val fromErrorKeys = arrayOf("email", "emailToken")
-            val message = StringBuilder()
-            it.map { entry ->
-                if (fromErrorKeys.contains(entry.key)) {
-                    when (entry.key) {
-
-                        "email" -> {
-                            binding.tilemail.apply {
-                                isErrorEnabled = true
-                                error = entry.value
-                            }
-                        }
-                        "emailToken" -> {
-                            binding.tilpassword.apply {
-                                isErrorEnabled = true
-                                error = entry.value
-                            }
-                        }
-                    }
-                } else {
-                    message.append(entry.value).append("\n")
-                }
-                if (message.isNotEmpty()) {
-                    AlertDialog.Builder(requireContext())
-                        .setIcon(R.drawable.baseline_info_24)
-                        .setTitle("Information")
-                        .setMessage(message)
-                        .setPositiveButton("ok") { dialog, _ -> dialog!!.dismiss() }
-                        .show()
-                }
-            }
-        }
-
-        viewModel.getUser().observe(this) {
-
-            startFragment(PayementFragment())
-
-        }
-
-    }
     private fun startFragment(fragment: Fragment) {
         val transaction = requireFragmentManager().beginTransaction()
         transaction.replace(R.id.flFragment, fragment)
@@ -115,16 +72,7 @@ class EmailVerificationFragment : Fragment(), View.OnClickListener, View.OnFocus
     }
 
 
-    private fun navigateToProfileFragment(client: Client) {
-        val secondFragment = ProfileFragment()
-        val bundle = Bundle()
-        bundle.putParcelable("client", client)
-        secondFragment.arguments = bundle
-        val transaction = requireActivity().supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.flFragment, secondFragment)
-        transaction.addToBackStack(null)
-        transaction.commit()
-    }
+
     private fun validateEmail(shouldUpdateView:Boolean = true,shouldVibrateView:Boolean = true):Boolean{
         var errorMessage : String?= null
         var value : String =binding.etemail.text.toString()
@@ -226,17 +174,7 @@ class EmailVerificationFragment : Fragment(), View.OnClickListener, View.OnFocus
         }
         return true
     }
-    private var currentUserEmail: String = ""
-    private fun handleLoginButtonClick() {
-        val email = etEmail.text.toString()
-        val password = etPassword.text.toString()
-
-        // Appeler la fonction de connexion avec l'e-mail et le mot de passe
-        //loginWithEmailAndPassword(email, password)
-
-        // Stocker l'e-mail de l'utilisateur actuellement connecté
-        currentUserEmail = email
-    }
+ 
 
 
 }
