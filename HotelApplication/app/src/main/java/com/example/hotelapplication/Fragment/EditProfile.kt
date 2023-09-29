@@ -131,7 +131,7 @@ class EditProfile : Fragment(), View.OnClickListener, View.OnFocusChangeListener
     }
 
     override fun onFocusChange(view: View?, hasFocus: Boolean) {
-        if (binding.root != null && view != null) {
+        if (view != null) {
             when (view.id) {
                 binding.FullName.id -> {
                     if (hasFocus) {
@@ -188,8 +188,6 @@ class EditProfile : Fragment(), View.OnClickListener, View.OnFocusChangeListener
                 val name = binding.FullName.text.toString()
                 val email = binding.Email.text.toString()
                 val phone = binding.PhoneNumber.text.toString()
-
-                val bundle = Bundle()
                 try {
                     val updateClientBody = UpdateClientBody(email, phone, name)
                     viewModel.updateClient(clientId!!, updateClientBody)
