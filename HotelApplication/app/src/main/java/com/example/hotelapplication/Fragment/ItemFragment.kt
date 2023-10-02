@@ -50,18 +50,18 @@ class ItemFragment : Fragment(), OnItemClickListener {
 
     override fun onItemClicked(item: ItemResponse) {
         sharedViewModel.addItem(item)
-        val name = arguments?.getString("name")
-        val snackbar = Snackbar.make(
+
+        val sna = Snackbar.make(
             binding.root,
             "The product '${item.name}' has been successfully added to your list.",
             Toast.LENGTH_SHORT
         )
-        val view = snackbar.view
+        val view = sna.view
         val params = view.layoutParams as FrameLayout.LayoutParams
         params.gravity = Gravity.BOTTOM
         view.layoutParams = params
         view.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.red))
-        snackbar.show()
+        sna.show()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

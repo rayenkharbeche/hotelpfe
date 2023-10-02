@@ -56,17 +56,17 @@ class ServiceListFragment : Fragment(), OnServiceClickListener {
 
     override fun onServiceClicked(service: ServiceResponse) {
         sharedViewModel.addService(service)
-        val snackbar = Snackbar.make(
+        val sna = Snackbar.make(
             binding.root,
             "The service '${service.name}' has been added.",
             Toast.LENGTH_SHORT
         )
-        val view = snackbar.view
+        val view = sna.view
         val params = view.layoutParams as FrameLayout.LayoutParams
         params.gravity = Gravity.BOTTOM
         view.layoutParams = params
         view.setBackgroundColor(ContextCompat.getColor(requireContext(),R.color.red))
-        snackbar.show()
+        sna.show()
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -74,7 +74,7 @@ class ServiceListFragment : Fragment(), OnServiceClickListener {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val name = arguments?.getString("name")
+        //val name = arguments?.getString("name")
         binding = RecyclerViewMenuBinding.inflate(inflater, container, false)
         progressBar = binding.progressBar
         val imageSlider = binding.imageslider

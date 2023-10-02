@@ -92,12 +92,12 @@ class PayementFragment : Fragment() {
                 transaction.commit()
             } else if (payAtCheckoutRadioButton.isChecked) {
 
-                var Credit = sharedViewModel.getTotalPrice()
+                var credit = sharedViewModel.getTotalPrice()
                 AuthClient.getInstance().logout()
                 val name = arguments?.getString("name") ?: ""
                 val id = arguments?.getString("id") ?: ""
                 val totalPrice = arguments?.getFloat("totalPrice") ?: 0f
-                openLoginFragment(id, name, Credit,totalPrice)
+                openLoginFragment(id, name, credit,totalPrice)
             } else {
                 Toast.makeText(
                     requireContext(),
@@ -126,7 +126,7 @@ class PayementFragment : Fragment() {
             val document = Document()
             pdfFilePath =
                 requireContext().getExternalFilesDir(null)?.absolutePath + File.separator + "facture.pdf"
-            val writer = PdfWriter.getInstance(document, FileOutputStream(pdfFilePath))
+         //   val writer = PdfWriter.getInstance(document, FileOutputStream(pdfFilePath))
             val num = arguments?.getString("num") ?: ""
             val totalPrice = sharedViewModel.getTotalPrice().toString()
             val date = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())

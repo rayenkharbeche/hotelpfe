@@ -63,14 +63,14 @@ class ProfileFragment : Fragment() {
                 CommandeRepository(APIService.getService()),
                 requireActivity().application
             )
-        ).get(CommandeViewModel::class.java)
+        )[CommandeViewModel::class.java]
         viewModel = ViewModelProvider(
             this,
             ClientViewModelFactory(
                 ClientRepository(APIService.getUpdatedService()),
                 requireActivity().application
             )
-        ).get(ClientViewModel::class.java)
+        )[ClientViewModel::class.java]
         binding.viewModel = viewModelRegister
 
         // Récupérez les valeurs d'email et d'emailToken depuis les arguments du fragment
@@ -129,16 +129,16 @@ class ProfileFragment : Fragment() {
         binding.PDF.setOnClickListener(){
             generatePdf()
             val id = UUID.randomUUID().toString()
-            val treatementDuration = arguments?.getString("treatementDuration") ?: ""
+            val treDuration = arguments?.getString("treDuration") ?: ""
             val totalPrice = sharedViewModel.getTotalPrice()
             val date = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
             val serviceList = sharedViewModel.myItemList.value ?: emptyList()
             Log.d("PayementFragment", "serviceList: $serviceList")
             val clientId = viewModelRegister.getClientId().value
-            val commandeList = serviceList.map { it.commands }.distinct().mapNotNull { it }
+            //val commandList = serviceList.map { it.commands }.distinct().mapNotNull { it }
             val facture = Command(
                 id = id,
-                treatementDuration = treatementDuration,
+                treatementDuration = treDuration,
                 totalPrice = totalPrice.toFloat(),
                 date = date,
                 clientId =clientId,
@@ -194,9 +194,9 @@ class ProfileFragment : Fragment() {
             val document = Document()
             pdfFilePath =
                 requireContext().getExternalFilesDir(null)?.absolutePath + File.separator + "facture.pdf"
-            val writer = PdfWriter.getInstance(document, FileOutputStream(pdfFilePath))
+            //val writer = PdfWriter.getInstance(document, FileOutputStream(pdfFilePath))
             val num = arguments?.getString("num") ?: ""
-            val type = arguments?.getString("type") ?: ""
+           // val type = arguments?.getString("type") ?: ""
             val totalPrice = sharedViewModel.getTotalPrice().toString()
             val date = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
             val serviceList = sharedViewModel.myItemList.value ?: emptyList()
@@ -213,8 +213,8 @@ class ProfileFragment : Fragment() {
             document.add(Paragraph(num))
 
             val servicesParagraph = Paragraph("Votre commande est :")
-            for (commandeService in serviceList) {
-                val commands = commandeService.commands ?: emptyList<Command>()
+            for (commandService in serviceList) {
+                val commands = commandService.commands ?: emptyList<Command>()
                 for (command in commands) {
                     val items = command.items ?: emptyList<Item>()
                     for (item in items) {
