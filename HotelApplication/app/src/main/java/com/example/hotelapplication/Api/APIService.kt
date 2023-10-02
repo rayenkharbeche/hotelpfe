@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit
 
 
 object APIService {
-    private const val BASE_URL = "http://192.168.1.34:3000/"
+    private const val BASE_URL = "http://192.168.1.23:3000/"
 
     fun getService(): APIConsumer {
 

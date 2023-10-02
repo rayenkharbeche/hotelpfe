@@ -52,6 +52,8 @@ class LoginViewModel(val clientRepository: ClientRepository, val application: Ap
             }
         })
     }
+
+
     companion object {
         const val TAG = "LoginViewModel"
     }

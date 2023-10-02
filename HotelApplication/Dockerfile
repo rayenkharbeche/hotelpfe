@@ -1,5 +1,5 @@
 # Utiliser l'image de base avec OpenJDK 11
-FROM adoptopenjdk:11-jdk-hotspot
+FROM openjdk:11-jdk
 
 # Définir les variables d'environnement Android
 ENV ANDROID_COMPILE_SDK 33

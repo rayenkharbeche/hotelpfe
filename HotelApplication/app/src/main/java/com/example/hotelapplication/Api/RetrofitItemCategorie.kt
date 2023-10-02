@@ -15,7 +15,7 @@ interface RetrofitItemCategorie {
 
 
     companion object {
-        private const val BASE_URL = "http://192.168.1.34:3000/"
+        private const val BASE_URL = "http://192.168.1.23:3000/"
 
         private val retrofit: Retrofit by lazy {
             Retrofit.Builder()
