@@ -146,9 +146,9 @@ View.OnKeyListener {
     }
 
     override fun onKey(view: View?, keyCode: Int, keyEvent: KeyEvent?): Boolean {
-        if (KeyEvent.KEYCODE_ENTER == keyCode && keyEvent!!.action == KeyEvent.ACTION_UP) {
+        /*if (KeyEvent.KEYCODE_ENTER == keyCode && keyEvent!!.action == KeyEvent.ACTION_UP) {
 
-        }
+        }*/
 
         return false
     }
