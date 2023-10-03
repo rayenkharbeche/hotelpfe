@@ -37,4 +37,4 @@ WORKDIR /app
 COPY HotelApplication /app/
 
 # Changer les permissions du script Gradle et exécuter la construction
-RUN chmod +x gradlew && ./gradlew assembleDebug --stacktrace && ./gradlew build
+RUN chmod +x gradlew && ./gradlew build
