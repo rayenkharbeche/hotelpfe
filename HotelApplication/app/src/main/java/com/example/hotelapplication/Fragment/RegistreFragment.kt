@@ -107,11 +107,10 @@ class RegistreFragment : Fragment(), View.OnClickListener, View.OnFocusChangeLis
                     setStartIconTintList(ColorStateList.valueOf(Color.GREEN))
                 }
             } else {
-              //  val email = binding.etemail.text.toString()
+
                 binding.tilemail.apply {
 
                     isErrorEnabled = true
-                  //  error = "Email is already taken"
                 }
 
             }

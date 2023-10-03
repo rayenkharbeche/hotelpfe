@@ -134,10 +134,6 @@ class UserAccountFragment :  Fragment()  {
         Log.d("UserAccountFragment", "Name: $name, Email: $email")
         val headerView = binding.navView.getHeaderView(0)
 
-        // Find views within the headerView to update name and email
-        val nameTextView = headerView.findViewById<TextView>(R.id.name)
-        val emailTextView = headerView.findViewById<TextView>(R.id.email)
-
         // Observe the LiveData for client name and email
         viewModelRegister.clientName.observe(viewLifecycleOwner) { clientName ->
             // Mettez à jour le TextView correspondant dans le header de la NavigationView

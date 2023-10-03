@@ -38,24 +38,4 @@ class CommandeViewModel(val commandeRepository: CommandeRepository, val applicat
         }
 
 }
-
-
-
-
-/*  private val repository = CommandeRepository()
-
-    private val _commandCreated = MutableLiveData<Boolean>()
-    val commandCreated: LiveData<Boolean> get() = _commandCreated
-
-    fun createCommand(command: Command) {
-        viewModelScope.launch {
-            try {
-                repository.createCommand(command)
-                _commandCreated.value = true
-            } catch (e: Exception) {
-                _commandCreated.value = false
-
-            }
-        }
-    }*/
 }

@@ -58,11 +58,6 @@ class EditProfile : Fragment(), View.OnClickListener, View.OnFocusChangeListener
             )
         ).get(ClientViewModel::class.java)
 
-       /* viewModel.client.observe(viewLifecycleOwner) { client ->
-            binding.FullName.setText(client?.email)
-            binding.PhoneNumber.setText(client?.phone)
-            binding.Email.setText(client?.email)
-        }*/
 
         binding.FullName.setOnKeyListener(this)
         binding.PhoneNumber.setOnKeyListener(this)

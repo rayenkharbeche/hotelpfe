@@ -104,11 +104,7 @@ class EmailVerificationFragment : Fragment(), View.OnClickListener, View.OnFocus
         return isvalid
     }
     private fun onSubmit() {
-        if (validate()) {
-            val email = binding.etemail.text.toString()
-            val password = binding.etPassword.text.toString()
-           // viewModel.loginWithEmailAndPassword(email, password)
-        }
+        //email and pwd
     }
     override fun onClick(v: View?) {
         when (v?.id) {

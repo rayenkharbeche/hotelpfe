@@ -12,17 +12,6 @@ class EmailVerificationViewModel @JvmOverloads constructor(val clientRepository:
         MutableLiveData<Boolean>().apply { value = false }
     private var errorMessage: MutableLiveData<HashMap<String, String>> = MutableLiveData()
     val client: MutableLiveData<Client> = MutableLiveData()
-    val navigateToNextFragment = MutableLiveData<Boolean>()
-    private var userLoggedIn: MutableLiveData<Boolean> =
-        MutableLiveData<Boolean>().apply { value = false }
-
-
-    fun getErrorMessage(): LiveData<HashMap<String, String>> = errorMessage
-
-    fun getIsLoading(): LiveData<Boolean> = isLoading
-
-    fun getUser(): LiveData<Client> = client
-
 
 
 }

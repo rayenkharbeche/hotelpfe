@@ -95,11 +95,7 @@ class SharedViewModel : ViewModel() {
         Log.d("SharedViewModel", "addItem() - New item added. List size: ${newList.size}")
 
     }
-    fun removeItem(item: ItemResponse) {
-        val newList = _myitemList.value?.toMutableList() ?: mutableListOf()
-        newList.remove(item)
-        _myitemList.postValue(newList)
-    }
+
 
 
 }

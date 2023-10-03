@@ -17,8 +17,7 @@ class ItemCategorieViewModel (private val repository: ItemCategorieRepository) :
     val serviceResponseListLiveData = MutableLiveData<List<ItemCategoryResponse>>()
     val errorMessage = MutableLiveData<String?>()
     private val _ItemC = MutableLiveData<ItemCategory>()
-    val ItemC: LiveData<ItemCategory>
-        get() = _ItemC
+
     fun getItemCategorie(serviceId: String) {
         viewModelScope.launch {
             try {

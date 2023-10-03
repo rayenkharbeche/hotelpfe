@@ -73,7 +73,6 @@ class PayementFragment : Fragment() {
                 val serviceList = sharedViewModel.myItemList.value ?: emptyList()
                 Log.d("PayementFragment", "serviceList: $serviceList")
                 val clientId = viewModelRegister.getClientId().value
-                //val commandeList = serviceList.map { it.commands }.distinct().mapNotNull { it }
                 val facture = Command(
                     id = id,
                     treatementDuration = treatementDuration,
@@ -126,7 +125,6 @@ class PayementFragment : Fragment() {
             val document = Document()
             pdfFilePath =
                 requireContext().getExternalFilesDir(null)?.absolutePath + File.separator + "facture.pdf"
-         //   val writer = PdfWriter.getInstance(document, FileOutputStream(pdfFilePath))
             val num = arguments?.getString("num") ?: ""
             val totalPrice = sharedViewModel.getTotalPrice().toString()
             val date = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())

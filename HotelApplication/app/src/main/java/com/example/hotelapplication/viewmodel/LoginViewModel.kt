@@ -21,7 +21,6 @@ class LoginViewModel(val clientRepository: ClientRepository, val application: Ap
     private var errorMessage: MutableLiveData<HashMap<String, String>> = MutableLiveData()
     val client: MutableLiveData<Client> = MutableLiveData()
 
-    val emailToken: MutableLiveData<String> = MutableLiveData()
 
 
 

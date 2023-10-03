@@ -19,17 +19,6 @@ object AuthClient {
         client = null
 
     }
-    fun getClientId(): String? {
-        return client?.id
-    }
-    fun getClientPhoto(): String? {
-        return client?.photo
-
-    }
-    fun getClientName(): String? {
-        return client?.name
-
-    }
 
     fun setConnectedClient(client: Client) {
         this.client = client

@@ -11,7 +11,6 @@ import kotlinx.coroutines.flow.flow
 import retrofit2.Response
 
 class CommandeRepository (val consumer : APIConsumer){
-        private val apiService = APIService.getService()
 
         suspend fun createCommand(body: Command) = flow {
             emit(RequestStatus.Waiting)
@@ -28,10 +27,5 @@ class CommandeRepository (val consumer : APIConsumer){
             }
 
         }
-
-       /*suspend fun createCommandd(command: Command): Response<Command> {
-           return apiService.createFacture(command)
-
-       }*/
 }
 
