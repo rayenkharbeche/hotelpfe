@@ -51,25 +51,12 @@ class EmailVerificationFragment : Fragment(), View.OnClickListener, View.OnFocus
 
         btnVerify.setOnClickListener {
 
-           // if (validateEmail() && validatePassword()) {
-            // Effectuer la vérification côté client avec le token envoyé par email
-               // val url = "http://example.com/client/auth/token?jwt=YOUR_JWT_TOKEN"
-             //
-
-
-               // viewModel.loginWithEmailAndPassword(email, password)
-          //  }
         }
 
         return view
     }
 
-    private fun startFragment(fragment: Fragment) {
-        val transaction = requireFragmentManager().beginTransaction()
-        transaction.replace(R.id.flFragment, fragment)
-        transaction.addToBackStack(null)
-        transaction.commit()
-    }
+
 
 
 

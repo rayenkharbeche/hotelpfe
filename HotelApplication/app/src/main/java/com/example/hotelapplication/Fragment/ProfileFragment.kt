@@ -194,9 +194,7 @@ class ProfileFragment : Fragment() {
             val document = Document()
             pdfFilePath =
                 requireContext().getExternalFilesDir(null)?.absolutePath + File.separator + "facture.pdf"
-            //val writer = PdfWriter.getInstance(document, FileOutputStream(pdfFilePath))
             val num = arguments?.getString("num") ?: ""
-           // val type = arguments?.getString("type") ?: ""
             val totalPrice = sharedViewModel.getTotalPrice().toString()
             val date = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
             val serviceList = sharedViewModel.myItemList.value ?: emptyList()

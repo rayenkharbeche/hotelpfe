@@ -49,7 +49,6 @@ class ServiceListFragment : Fragment(), OnServiceClickListener {
     private val itemCategorieRepository = ItemCategorieRepository(retrofitItemCategorie)
     private val itemCategorieViewModel = ItemCategorieViewModel(itemCategorieRepository)
     private val adapter = ListAdapter(this, itemCategorieViewModel)
-   // private val dataList = mutableListOf<ExtarServices>()
     private var isGridMode = false
     private lateinit var progressBar: ProgressBar
     private var isSearching = false
@@ -74,7 +73,6 @@ class ServiceListFragment : Fragment(), OnServiceClickListener {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        //val name = arguments?.getString("name")
         binding = RecyclerViewMenuBinding.inflate(inflater, container, false)
         progressBar = binding.progressBar
         val imageSlider = binding.imageslider

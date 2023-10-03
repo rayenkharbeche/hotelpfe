@@ -208,19 +208,7 @@ class RegisterActivityViewModel(
         tokenResponseLiveData.value = clientphotoo
         return tokenResponseLiveData
     }
-    fun setClientPhotoo(clientPho: String?) {
-        _clientNameLiveData.value = clientphotoo
-    }
-    // Fonctions pour obtenir et définir l'e-mail du client
- /*   fun getClientEmail(): MutableLiveData<String?> {
-        val tokenResponseLiveData = MutableLiveData<String?>()
-        tokenResponseLiveData.value = clientemail
-        return tokenResponseLiveData
-    }
 
-    fun setClientEmail(clientEmail: String?) {
-        _clientEmailLiveData.value = clientEmail
-    }*/
 
     fun fetchClientNameAndEmail(): Pair<String?, String?>? {
         val connectedClient = AuthClient.getConnectedClient()

@@ -69,47 +69,10 @@ class ClientViewModel(private val repository: ClientRepository , val application
     }
 
 
-    fun getAllClient() {
-        viewModelScope.launch {
-            try {
-                val response: Response<List<Client>> = repository.getAllClient()
-                if (response.isSuccessful) {
-                    val extarServicesList: List<Client>? = response.body()
-
-                    val serviceResponseList: List<ClientResponse> =
-                        extarServicesList?.map { extarService ->
-                            ClientResponse(
-                                extarService.id ?: "",
-                                extarService.name ?: "",
-                                extarService.email ?: "",
-                                extarService.phone ?: "",
-                                extarService.photo ?: "",
-                                extarService.photo ?: ""
-                            )
-                        } ?: emptyList()
-
-                    // Poster la liste de ServiceResponse
-                    clientResponseListLiveData.postValue(serviceResponseList)
-                    Log.d(ContentValues.TAG, "Client list loaded successfully.")
-                } else {
-                    val errorString = response.errorBody()?.string()
-                    errorMessage.postValue(errorString)
-                }
-            } catch (t: Throwable) {
-                errorMessage.postValue(t.message)
-                Log.e(ContentValues.TAG, "Failed to load Client list: ${t.message}")
-            }
-        }
-    }
 
 
     val _clientIdLiveData: MutableLiveData<Client?> = MutableLiveData()
     val clientIdLiveData: MutableLiveData<Client?> = _clientIdLiveData
-
-
-    val _clientNameLiveData: MutableLiveData<Client?> = MutableLiveData()
-    val clientNameLiveData: MutableLiveData<Client?> = _clientNameLiveData
-
 
     fun setClientId(Client: Client?) {
         clientIdLiveData.value = Client
@@ -138,26 +101,5 @@ class ClientViewModel(private val repository: ClientRepository , val application
         }
     }
 
-  /*  fun updateCredit(newCredit: String, callback: (Boolean) -> Unit) {
-        viewModelScope.launch {
-            val currentClientId = getClientId().value
-            try {
-                // Fetch the current client from the repository
-                val currentClient = repository.getClientById(currentClientId)
-
-                // Update the credit of the client
-                currentClient?.let {
-                    it.credit = newCredit
-                    repository.updateClient(it)
-                    callback(true) // Callback indicating success
-                } ?: run {
-                    callback(false) // Callback indicating failure (client not found)
-                }
-            } catch (e: Exception) {
-                e.printStackTrace()
-                callback(false) // Callback indicating failure (an error occurred)
-            }
-        }
-    }*/
 
 }
