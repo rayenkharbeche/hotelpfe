@@ -1,7 +1,7 @@
 package com.example.hotelapplication.Fragment
 
 
-import android.net.Uri
+
 import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
@@ -12,13 +12,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
-import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.example.hotelapplication.Api.VibrateView
 import com.example.hotelapplication.R
 import com.example.hotelapplication.databinding.FragmentEmailVerificationBinding
-import com.example.hotelapplication.model.Client
 import com.example.hotelapplication.viewmodel.EmailVerificationViewModel
 
 
