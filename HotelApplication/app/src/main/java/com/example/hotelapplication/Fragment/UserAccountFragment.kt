@@ -86,7 +86,7 @@ class UserAccountFragment :  Fragment()  {
 
 
                 R.id.nav_settings -> {
-                    val fragment = ChangePasswordFragment()
+                    val fragment = EditProfile()
                     requireActivity().supportFragmentManager.beginTransaction()
                         .replace(R.id.fragment_container, fragment)
                         .addToBackStack(null)
