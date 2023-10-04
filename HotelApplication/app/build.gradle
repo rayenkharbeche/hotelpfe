@@ -9,9 +9,9 @@ plugins {
 sonarqube {
     properties {
 
-        property "sonar.projectKey", "hotelwallet"
+        property "sonar.projectKey", "hotelwalletpfe"
         property "sonar.host.url", "http://192.168.1.31:9000"
-        property "sonar.login", "ab0fedc4361ef654cd4ea1c439982b21b1786110"
+        property "sonar.login", "e1d1246a26b9c548729adad7e8142c11b3735ec4"
 
     }
 }
