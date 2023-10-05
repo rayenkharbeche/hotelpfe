@@ -16,9 +16,6 @@ RUN apt-get update && apt-get install -y wget unzip
 # Créer le répertoire cmdline-tools dans ANDROID_HOME
 RUN mkdir -p ${ANDROID_HOME}/cmdline-tools
 
-# Créer le répertoire /usr/local/android-sdk à la racine
-RUN mkdir -p /usr/local/android-sdk
-
 # Téléchargement et extraction des outils Android SDK
 RUN wget -q https://dl.google.com/android/repository/commandlinetools-linux-${ANDROID_SDK_TOOLS}.zip -O android-sdk.zip && \
     unzip -q android-sdk.zip -d ${ANDROID_HOME}/cmdline-tools && \
@@ -27,8 +24,6 @@ RUN wget -q https://dl.google.com/android/repository/commandlinetools-linux-${AN
 
 # Accepter automatiquement les licences Android SDK
 RUN yes | ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager --licenses
-RUN rm -rf /root/.gradle/caches/
-RUN rm -rf /app/.gradle/
 
 # Configuration du répertoire de travail
 WORKDIR /app
@@ -36,7 +31,9 @@ WORKDIR /app
 # Copier les fichiers de l'application dans le conteneur
 COPY HotelApplication /app/
 
-# Changer les permissions du script Gradle et exécuter la construction
-RUN chmod +x gradlew 
+# Changer les permissions du script Gradle
+RUN chmod +x gradlew
+
+# Exécuter les étapes Gradle séparément avec plus de ressources
 RUN ./gradlew assembleDebug --stacktrace
 RUN ./gradlew build --stacktrace
