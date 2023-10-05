@@ -10,7 +10,7 @@ sonarqube {
     properties {
 
         property "sonar.projectKey", "hotelwalletpfe"
-        property "sonar.host.url", "http://192.168.1.34:9000"
+        property "sonar.host.url", "http://192.168.1.13:9000"
         property "sonar.login", "e1d1246a26b9c548729adad7e8142c11b3735ec4"
 
     }
