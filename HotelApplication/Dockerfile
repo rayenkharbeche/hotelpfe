@@ -36,4 +36,4 @@ RUN chmod +x gradlew
 
 # Exécuter les étapes Gradle séparément avec plus de ressources
 #RUN ./gradlew assembleDebug --stacktrace
-RUN ./gradlew build --stacktrace
+RUN ./gradlew build 
