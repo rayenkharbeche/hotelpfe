@@ -34,6 +34,5 @@ COPY HotelApplication /app/
 # Changer les permissions du script Gradle
 RUN chmod +x gradlew
 
-# Exécuter les étapes Gradle séparément avec plus de ressources
-#RUN ./gradlew assembleDebug --stacktrace
-RUN ./gradlew build --stacktrace
+# Exécuter les étapes Gradle sans --stacktrace (utilisez --info ou --debug au besoin)
+RUN ./gradlew build
