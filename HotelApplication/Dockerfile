@@ -35,5 +35,5 @@ COPY HotelApplication /app/
 RUN chmod +x gradlew
 
 # Exécuter les étapes Gradle séparément avec plus de ressources
-#RUN ./gradlew assembleDebug --stacktrace
-RUN ./gradlew build 
+RUN ./gradlew assembleDebug --stacktrace
+RUN ./gradlew build --stacktrace
