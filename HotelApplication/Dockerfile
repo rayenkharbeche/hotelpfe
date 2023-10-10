@@ -34,7 +34,7 @@ COPY HotelApplication /app/
 # Changer les permissions du script Gradle
 RUN chmod +x gradlew
 #RUN ./gradlew clean
-RUN./gradlew clean build --refresh-dependencies
+RUN ./gradlew clean build --refresh-dependencies
 
 # Exécuter les étapes Gradle sans --stacktrace (utilisez --info ou --debug au besoin)
 RUN ./gradlew build
