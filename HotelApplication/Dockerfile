@@ -36,4 +36,4 @@ RUN chmod +x gradlew
 
 
 # Exécuter les étapes Gradle sans --stacktrace (utilisez --info ou --debug au besoin)
-RUN ./gradlew build
+#RUN ./gradlew build
